@@ -8,6 +8,8 @@ RUN apt-get update \
 ENV ROON_DATAROOT=/var/roon/
 ENV ROON_ID_DIR /var/roon/
 
+RUN uname -m
+
 # Location of Roon's latest Linux installer
 ENV ROON_INSTALLER roonserver-installer-linuxx64.sh
 ENV ROON_INSTALLER_URL http://download.roonlabs.com/builds/${ROON_INSTALLER}
