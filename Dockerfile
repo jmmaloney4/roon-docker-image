@@ -1,5 +1,5 @@
 # Based on https://github.com/mikedickey/RoonServer
-FROM ubuntu:focal
+FROM ubuntu:20.04
 
 RUN apt-get update \
 	&& apt-get install -y ffmpeg curl bzip2 cifs-utils libasound2 \
