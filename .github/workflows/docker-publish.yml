@@ -51,10 +51,10 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            docker.io/jmmaloney4/roon:latest
-            docker.io/jmmaloney4/roon:${{github.run_number}}
-            ghcr.io/jmmaloney4/roon:latest
-            ghcr.io/jmmaloney4/roon:${{github.run_number}}
+            docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
+            docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{github.run_number}}
+            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
+            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{github.run_number}}
       
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
