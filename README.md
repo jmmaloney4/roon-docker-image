@@ -3,7 +3,7 @@
 A Docker image for roon.
 
 ```
-docker pull jmmaloney4/roon:latest
+docker pull ghcr.io/jmmaloney4/roon:latest
 ```
 
 ```
@@ -13,7 +13,7 @@ docker run -d \
   -v </path/to/config/>:/config \
   -v </path/to/music/library>:/music \
   --restart unless-stopped \
-  jmmaloney4/roon:latest
+  ghcr.io/jmmaloney4/roon:latest
 ```
 
 ## Kubernetes Helm Chart
