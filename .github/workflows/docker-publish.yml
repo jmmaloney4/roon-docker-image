@@ -33,7 +33,14 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
-          username: jmmaloney4
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.DOCKER_HUB_PAT }}
+
+      - name: Login to ghcr.io
+        uses: docker/login-action@v1 
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKER_HUB_PAT }}
         
       - name: Build and push Docker images
@@ -44,8 +51,10 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            jmmaloney4/roon:latest
-            jmmaloney4/roon:${{github.run_number}}
+            docker.io/jmmaloney4/roon:latest
+            docker.io/jmmaloney4/roon:${{github.run_number}}
+            ghcr.io/jmmaloney4/roon:latest
+            ghcr.io/jmmaloney4/roon:${{github.run_number}}
       
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
