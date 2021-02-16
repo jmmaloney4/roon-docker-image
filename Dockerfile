@@ -1,9 +1,9 @@
 # Based on https://github.com/mikedickey/RoonServer
 
+FROM ubuntu:20.04
+
 # For GitHub container registry
 LABEL org.opencontainers.image.source https://github.com/jmmaloney4/roon-docker-image
-
-FROM ubuntu:20.04
 
 RUN apt-get update \
 	&& apt-get install -y ffmpeg curl bzip2 cifs-utils libasound2 \
