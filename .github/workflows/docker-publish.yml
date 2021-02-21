@@ -2,11 +2,13 @@ name: Docker
 
 on:
   push:
-    branches: 
-      - master
+    branches:
+      - '**'
+    tags:
+      - '**'
+  pull_request:
   schedule:
     - cron: "0 0 * * *"
-
 env:
   IMAGE_NAME: roon
 
@@ -42,19 +44,28 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
-        
+
+      - name: Generate Date-Time
+        id: datetime
+        run: echo "::set-output name=datetime::$(date +'%Y%m%d%H%M')"
+      
+      - name: Prep Docker Tags
+        id: docker_meta
+        uses: crazy-max/ghaction-docker-meta@v1
+        with:
+          images: "docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}, ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}"
+          tag-sha: true
+          tag-custom: "${{ steps.datetime.outputs.datetime }}"
+
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64
-          push: true
-          tags: |
-            docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
-            docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{github.run_number}}
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{github.run_number}}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
       
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
