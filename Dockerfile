@@ -1,7 +1,5 @@
 # Based on https://github.com/mikedickey/RoonServer
 
-FROM ubuntu:20.04
-
 # For GitHub container registry
 LABEL org.opencontainers.image.source https://github.com/jmmaloney4/roon-docker-image
 
