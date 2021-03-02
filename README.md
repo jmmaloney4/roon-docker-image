@@ -26,3 +26,5 @@ See the [Release Notes](https://community.roonlabs.com/c/roon/software-release-n
 ```
 ./release.sh <Roon Version> <Roon Build>
 ```
+
+This will push a tag, which will trigger github actions to create a new release and push a new `latest` docker tag.
