@@ -9,6 +9,9 @@ on:
   pull_request:
 env:
   IMAGE_NAME: roon
+  # https://community.roonlabs.com/c/roon/software-release-notes/
+  ROON_VERSION: 1.8
+  ROON_BUILD: "764"
 
 jobs:
   docker:
@@ -53,7 +56,7 @@ jobs:
         with:
           images: "docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}, ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}"
           tag-sha: true
-          tag-custom: "${{ steps.datetime.outputs.datetime }}"
+          tag-custom: "${{ steps.datetime.outputs.datetime }}, ${{ env.ROON_VERSION }}-${{ env.ROON_BUILD }}"
 
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
