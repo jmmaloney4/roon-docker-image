@@ -4,7 +4,7 @@ read -r -p "Will release for Roon version $TAG. Are you sure? [y/n]: " input
 
 case $input in
     [yY][eE][sS]|[yY])
-        echo "Yes"    
+        git tag -f $TAG && git push origin $TAG --force 
         ;;
     [nN][oO]|[nN])
         echo "Cancelled"
