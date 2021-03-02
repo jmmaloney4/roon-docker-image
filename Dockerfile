@@ -4,7 +4,6 @@ FROM ubuntu:focal-20201008
 # For GitHub container registry
 LABEL org.opencontainers.image.source https://github.com/jmmaloney4/roon-docker-image
 
-
 RUN apt-get update \
 	&& apt-get install -y ffmpeg curl bzip2 cifs-utils libasound2 \
 	&& apt-get -y clean && apt-get -y autoclean
