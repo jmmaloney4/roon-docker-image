@@ -10,7 +10,7 @@ docker pull ghcr.io/jmmaloney4/roon:latest
 docker run -d \
   --network host
   --name=roon-server \
-  -v </path/to/config/>:/config \
+  -v </path/to/config/>:/var/roon \
   -v </path/to/music/library>:/music \
   --restart unless-stopped \
   ghcr.io/jmmaloney4/roon:latest
