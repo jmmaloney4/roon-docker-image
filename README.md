@@ -18,3 +18,11 @@ docker run -d \
 
 ## Kubernetes Helm Chart
 See [github.com/jmmaloney4/charts](https://github.com/jmmaloney4/charts) for a helm chart. 
+
+### Releasing
+
+See the [Release Notes](https://community.roonlabs.com/c/roon/software-release-notes/) for the latest.
+
+```
+
+```
