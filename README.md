@@ -24,5 +24,5 @@ See [github.com/jmmaloney4/charts](https://github.com/jmmaloney4/charts) for a h
 See the [Release Notes](https://community.roonlabs.com/c/roon/software-release-notes/) for the latest.
 
 ```
-TAG=<Roon Version>-<Roon Build> git tag -f $TAG && git push origin $TAG --force
+./release.sh <Roon Version> <Roon Build>
 ```
