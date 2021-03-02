@@ -3,7 +3,7 @@ name: Docker
 on:
   push:
     branches:
-      - '**'
+      - master
     tags:
       - '**'
   pull_request:
@@ -13,7 +13,7 @@ env:
   IMAGE_NAME: roon
 
 jobs:
-  push:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
