@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
-    - uses: ncipollo/release-action@v1.8.0
+    - uses: ncipollo/release-action@v1.8.1
       with:
         allowUpdates: true
         bodyFile: "release.md"
