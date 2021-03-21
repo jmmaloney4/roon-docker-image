@@ -23,7 +23,7 @@ ENTRYPOINT ["/tini", "--"]
 # Location of Roon's latest Linux installer
 ENV ROON_INSTALLER roonserver-installer-linuxx64.sh
 ENV ROON_INSTALLER_URL http://download.roonlabs.com/builds/${ROON_INSTALLER}
-ENV MONO_LOG_LEVEL=info
+ENV MONO_LOG_LEVEL=message
 
 # Grab installer and script to run it
 ADD ${ROON_INSTALLER_URL} /tmp
