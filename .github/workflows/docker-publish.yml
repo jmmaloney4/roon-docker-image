@@ -45,10 +45,16 @@ jobs:
       
       - name: Prep Docker Tags
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1.12.0
+        uses: crazy-max/ghaction-docker-meta@v2.3.0
         with:
           images: "docker.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}, ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}"
-          tag-sha: true
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=ref,event=tag
+            type=edge
+            type=sha,prefix=git-
+            
 
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.4.0
