@@ -6,6 +6,7 @@
   "rebaseWhen": "behind-base-branch",
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
+  "assignees": ["jmmaloney4"],
   "docker": {
     "enabled": true
   }
