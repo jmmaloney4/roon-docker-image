@@ -1,5 +1,7 @@
 # Roon Docker Image
 
+![docker publish workflow](https://github.com/jmmaloney4/roon-docker-image/actions/workflows/docker-publish.yml/badge.svg)
+
 A Docker image for roon.
 
 ```
