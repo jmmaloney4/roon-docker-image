@@ -1,4 +1,4 @@
-FROM ubuntu@sha256:20fa2d7bb4de7723f542be5923b06c4d704370f0390e4ae9e1c833c8785644c1
+FROM docker.io/linuxserver/wireguard:1.0.20210914@sha256:467462c166dc661c8e40608646a359f46c198341d09ade958e8d56654df89747
 # Based on https://github.com/mikedickey/RoonServer
 
 # For GitHub container registry

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - wireguard
     tags:
       - '**'
   pull_request:
