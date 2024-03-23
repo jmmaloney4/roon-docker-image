@@ -25,6 +25,8 @@ See [github.com/jmmaloney4/charts](https://github.com/jmmaloney4/charts) for a h
 
 See the [Release Notes](https://community.roonlabs.com/c/roon/software-release-notes/) for the latest.
 
+Or run `echo ${$(tar -zxvOf RoonServer_linuxx64.tar.bz2 RoonServer/VERSION 2> /dev/null | head -n 1)#*20000}`
+
 ```
 ./release.sh <Roon Version> <Roon Build>
 ```
